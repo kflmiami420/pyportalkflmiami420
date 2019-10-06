@@ -78,7 +78,8 @@ class WeatherStation_GFX(displayio.Group):
 
     def display_data(self, bme_data, wind_speed):
         temperature = round(bme_data[0], 1)
-        print('Temperature: {0} C'.format(temperature))
+        temperature = (temperature * 9 / 5) + 32
+        print('Temperature: {0} F'.format(temperature))
         pressure = round(bme_data[1], 1)
         print('Pressure: {0} mbar'.format(pressure))
         if not self._celsius:
