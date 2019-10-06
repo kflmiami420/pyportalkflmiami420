@@ -75,7 +75,7 @@ def adc_to_wind_speed(val):
 def send_to_io():
     io.send_data(wind_speed_feed['key'], wind_speed)
     io.send_data(temperature_feed['key'], bme280_data[0])
-    io.send_data(pressure_feed['key'], bme280_data[2])
+    io.send_data(pressure_feed['key'], bme280_data[1])
 
 while True:
     bme280_data = [bme280.temperature, bme280.pressure]
@@ -99,4 +99,3 @@ while True:
         wifi.reset()
         continue
     time.sleep(PYPORTAL_REFRESH)
-
