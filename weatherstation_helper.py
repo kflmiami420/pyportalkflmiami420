@@ -51,23 +51,23 @@ class WeatherStation_GFX(displayio.Group):
 
         self.io_status_text = Label(self.c_font, max_glyphs=30)
         self.io_status_text.x = 65
-        self.io_status_text.y = 190
+        self.io_status_text.y = 230
         self._text_group.append(self.io_status_text)
 
-        self.bme_temp_humid_text = Label(self.medium_font, max_glyphs = 50)
-        self.bme_temp_humid_text.x = 0
-        self.bme_temp_humid_text.y = 70
-        self._text_group.append(self.bme_temp_humid_text)
+        self.bme_temp_text = Label(self.medium_font, max_glyphs = 50)
+        self.bme_temp_text.x = 40
+        self.bme_temp_text.y = 170
+        self._text_group.append(self.bme_temp_text)
 
-        self.wind_speed_text = Label(self.medium_font, max_glyphs=30)
-        self.wind_speed_text.x = 0
-        self.wind_speed_text.y = 100
+        self.wind_speed_text = Label(self.medium_font, max_glyphs=50)
+        self.wind_speed_text.x = 15
+        self.wind_speed_text.y = 70
         self._text_group.append(self.wind_speed_text)
 
-        self.bme_pres_alt_text = Label(self.medium_font, max_glyphs=50)
-        self.bme_pres_alt_text.x = 0
-        self.bme_pres_alt_text.y = 130
-        self._text_group.append(self.bme_pres_alt_text)
+        self.bme_pres_text = Label(self.medium_font, max_glyphs=50)
+        self.bme_pres_text.x = 40
+        self.bme_pres_text.y = 30
+        self._text_group.append(self.bme_pres_text)
 
         board.DISPLAY.show(self._text_group)
 
@@ -79,20 +79,20 @@ class WeatherStation_GFX(displayio.Group):
     def display_data(self, bme_data, wind_speed):
         temperature = round(bme_data[0], 1)
         print('Temperature: {0} C'.format(temperature))
-        humidity = round(bme_data[1], 1)
-        print('Humidity: {0}%'.format(humidity))
+        pressure = round(bme_data[1], 1)
+        print('Pressure: {0} mbar'.format(pressure))
         if not self._celsius:
             temperature = (temperature * 9 / 5) + 32
-            self.bme_temp_humid_text.text = 'Temp: {0}°F, Humid: {1}%'.format(temperature, humidity)
+            self.bme_temp_text.text = 'Temp: {0}°F, '.format(temperature)
         else:
-            self.bme_temp_humid_text.text = 'Temp: {0}°C, Humid: {1}%'.format(temperature, humidity)
+            self.bme_temp_text.text = 'Temp: {0}°C, '.format(temperature)
 
-        print("Wind Speed: %f m/s" % wind_speed)
-        self.wind_speed_text.text = "Wind Speed %0.2f m/s" % wind_speed
+        print("Wind Speed: %f MPH" % wind_speed)
+        self.wind_speed_text.text = "Wind Speed %0.2f MPH" % wind_speed
 
-        pressure = round(bme_data[2], 3)
-        print('Altitude: %0.3f meters, Pressure: %0.2f Mbar'%(pressure))
-        self.bme_pres_alt_text.text = 'Alt: {0}m, Pres: {1}Mbar'.format(pressure)
+        pressure = round(bme_data[1], 1)
+        print('Pressure: %0.2f Mbar'%(pressure))
+        self.bme_pres_text.text = 'Pres: {1}Mbar'.format(pressure)
         board.DISPLAY.refresh_soon()
         board.DISPLAY.wait_for_frame()
 
