@@ -8,13 +8,17 @@ bme280 sensor and 1733 anemometer
 <img src="https://cdn-shop.adafruit.com/970x728/4116-17.jpg">
 <img src="https://cdn-shop.adafruit.com/970x728/4116-16.jpg">
 <img src="https://cdn-shop.adafruit.com/970x728/4116-15.jpg">
-<img src="https://cdn-shop.adafruit.com/970x728/4116-16.jpg">
+
+
+Anemometer 1733
 <img src="https://cdn-shop.adafruit.com/970x728/1733-00.jpg">
+
+BME280 Temp/Press/Humidity
 <img src="https://cdn-shop.adafruit.com/970x728/2652-00.jpg">
 
 
 
-Pyportal 
+DigiKey Adafruit PyPortal - CircuitPython Powered Internet Display
 https://www.adafruit.com/product/4116
 
 BME280
