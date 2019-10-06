@@ -15,7 +15,7 @@ BME280 Temp/Press/Humidity
 
 
 
-DigiKey Adafruit PyPortal - CircuitPython Powered Internet Display
+DigiKey PyPortal 
 https://www.adafruit.com/product/4116
 
 BME280
